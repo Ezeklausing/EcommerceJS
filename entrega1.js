@@ -10,3 +10,5 @@ while (resultado <= 100) {
     alert("te pasaste de 100");
   }
 }
+
+/** */
