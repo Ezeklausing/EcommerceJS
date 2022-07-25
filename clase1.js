@@ -1,3 +1,5 @@
+/* Clase 1 y 2 ------------------------------------------------ */
+
 // console.log("segunda forma de crear codigo");
 // var perro = "bonzo";
 // console.log(perro);
@@ -34,7 +36,7 @@
 //   console.log("no es un color primario");
 // }
 
-/* CLASE 3*/
+/* CLASE 3/4*--------------------------------------------/
 
 /*ciclos */
 
@@ -111,4 +113,87 @@ calcule total y promedio*/
 //   default:
 //     console.log("no es color primario");
 //     break;
+// }
+
+// function sumar(numero1, numero2) {
+//   return numero1 + numero2;
+// }
+// let resultado = sumar(4, 4);
+
+/* Clase 5 - Objetos --------------------------------------------*/
+
+// /*objetos literales */
+
+// const integrante1 = {
+//   nombre: "gonza",
+//   edad: 29,
+//   rol: "profe",
+// };
+// // mostrar propiedades objeto
+
+// console.log(integrante1);
+// alert(integrante1.rol);
+
+// const integrante2 = {
+//   nombre: "Felipe",
+//   edad: 27,
+//   rol: "alumno",
+//   ciudad: "tucuman",
+// };
+
+// // otra forma de acceder a propiedad
+// console.log(integrante2["rol"]);
+
+// // cambiar una propiedad - tambien se puede con los corchetes, como para acceder.
+
+// integrante2.rol = "profe";
+
+// // funcion constructora y new
+
+// function Persona(nombre, edad, calle) {
+//   this.nombre = nombre;
+//   this.edad = edad;
+//   this.calle = calle;
+// }
+
+// const persona3 = new Persona("homero", 39, "Av.siempreviva 742");
+
+// // metodos- funciones dentro del objeto. solo a la funcion constructora participante.
+
+// function Participante(nombre, edad, calle, rol) {
+//   this.nombre = nombre;
+//   this.edad = edad;
+//   this.calle = calle;
+//   this.rol = rol;
+//   this.hablar = function () {
+//     console.log("hola soy " + this.nombre);
+//   };
+//   this.ayuda = function () {
+//     if (this.rol == "estudiante") {
+//       console.log("Bienvenido a coder");
+//     }
+//   };
+// }
+// const ezequiel = new Participante("Ezequiel", 30, "Zabala 1975", "estudiante");
+// // llamo a la funcion metodo ayuda
+// ezequiel.ayuda();
+
+// // operadore in y for.. in // un ciclo for para pasar por todas las propiedades de un objeto. puede ser con Const o LET
+
+// for (const propiedad in integrante1) {
+//   console.log(persona1.propiedad);
+// }
+
+// // objetos con class - similar a la funcion constructura -- tiene pequeñas dif.
+
+// class Tipo {
+//   constructor(nombre, edad, calle) {
+//     this.nombre = nombre;
+//     this.edad = edad;
+//     this.calle = calle;
+//   }
+//   //   metodo por fuera
+//   hablar() {
+//     console.log("hola soy " + this.nombre);
+//   }
 // }
