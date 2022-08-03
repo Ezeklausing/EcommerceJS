@@ -197,3 +197,247 @@ calcule total y promedio*/
 //     console.log("hola soy " + this.nombre);
 //   }
 // }
+
+// Clase 6 Arrays ------------------------------------------------
+
+// const primerArray = [1, 2, 3, 4];
+// console.log(primerArray);
+
+// recorro todo el array con el metodo lenght
+
+// for (let i = 0; i < primerArray.length; i++) {
+//   console.log(primerArray[i]);
+// }
+
+// metodo .push - agrega un elemento al array
+
+// primerArray.push("alFinal");
+
+// metodo. unshifht - agrega un elemento al principio
+
+// primerArray.unshift("alprincipio");
+// console.log(primerArray);
+
+// metodos pop y shift - borran al final y al principio respectivamente
+
+// primerArray.pop();
+// primerArray.shift();
+// console.log(primerArray);
+
+// demas metodos en diapositivas
+
+//METODOS: console.log(numeros.join(" / "))let arrayGrande = primerArray.concat(numeros)console.log(arrayGrande)//
+// Splice, donde se posiciona y cuantos eliminanumeros.splice(1,2)
+// console.log(numeros)let otrosnumeros =numeros.slice(0,2)console.log(otrosnumeros)
+// COPIAR CODIGO DE CLASE
+
+// arrays de objetos
+//   crear una funcion que permita al usuario agregar un libro.
+
+// declaracion de la clase
+
+//Declaración de la clase
+
+// class Libros {
+//   constructor(id, autor, año, titulo, precio) {
+//     //propiedades o atributos de nuestra clase
+//     (this.id = id),
+//       (this.autor = autor),
+//       (this.año = año),
+//       (this.titulo = titulo),
+//       (this.precio = precio);
+//   }
+//Métodos de nuestra clase
+//   mostrarDatos() {
+//     console.log(
+//       `El autor es ${this.autor} su libro es ${this.titulo} y vale ${this.precio}. La id del libro es ${this.id}`
+//     );
+//   }
+// }
+// //Instanciación de objetos -- respetamos orden y cantidad de atributos
+// let biblioteca = [];
+// const libro1 = new Libros(1, "Jorge Luis Borges", 1949, "Aleph", 2000);
+// biblioteca.push(libro1);
+// const libro2 = new Libros(
+//   2,
+//   "Gabriel García Marquez",
+//   1967,
+//   "Cien años de Soledad",
+//   4500
+// );
+// biblioteca.push(libro2);
+// const libro3 = new Libros(3, "Isabel Allende", 1994, "Paula", 2800);
+// biblioteca.push(libro3);
+// const libro4 = new Libros(4, "Jorge Luis Borges", 1944, "Ficciones", 1400);
+// biblioteca.push(libro4);
+// const libro5 = new Libros(5, "Mario Benedetti", 1996, "Andamios", 2000);
+// biblioteca.push(libro5);
+// const libro6 = new Libros(
+//   6,
+//   "Mario Vargas Llosa",
+//   1963,
+//   "La ciudad y los perros",
+//   2000
+// );
+// biblioteca.push(libro6);
+
+//Cargar array forma directa
+//estanteria es nuestro array de objetos
+// const estanteria = [libro1, libro2, libro3, libro4, libro5, libro6];
+
+//DECLARACIÓN DE FUNCIONES:
+
+//Crear una function que permita al usuario agregar un libro
+// function nuevoLibro() {
+//   let autorIngresado = prompt("Ingrese el autor");
+//   let añoIngresado = parseInt(prompt("Ingrese el año"));
+//   let tituloIngresado = prompt("Ingrese el titulo");
+//   let precioIngresado = parseInt(prompt("Ingrese el precio"));
+//   //Utilizamos método length para id dinámica
+//   let libroCreado = new Libros(
+//     estanteria.length + 1,
+//     autorIngresado,
+//     añoIngresado,
+//     tituloIngresado,
+//     precioIngresado
+//   );
+//   console.log(libroCreado);
+//   //Push de libroCreado al array
+//   estanteria.push(libroCreado);
+// }
+//mostrar catálogo
+
+// function mostrarCatalogo() {
+//   alert(`Podrá ver nuestro catálogo en la consola:`);
+//   //For of array de objetos
+//   for (let libro of estanteria) {
+//     //Accedo a atributos de mi array de objetos
+//     libro.mostrarDatos();
+//   }
+// }
+// function eliminarLibro() {
+//   //pregunte id a usuario
+//   //busque por id
+//   //elimine por id seleccionada
+//   let idEliminar = prompt("Ingrese la id del libro a eliminar");
+//   for (let libroBuscado of estanteria) {
+//     if (libroBuscado.id == idEliminar) {
+//       console.log("Este es el libro " + libroBuscado.titulo);
+//       estanteria.splice(idEliminar - 1, 1);
+//       console.log(estanteria);
+//     }
+//   }
+// }
+// //Function que consulte al usuario opción deseada
+// function preguntarOpcion() {
+//   let opcion = parseInt(
+//     prompt(`Ingrese el número de la opción que desea realizar:
+//                         1 - Ver catálogo de libros
+//                         2 - Agregar un libro a nuestro catálogo
+//                         3 - Eliminar un libro de nuestro catálogo
+//                         4 - Buscar libros disponibles por autor:
+//                         5 - Buscar coincidencias:
+//                         0 - Para salir
+//                         `)
+//   );
+//   menu(opcion);
+// }
+
+// //Function que ofrezca un menú
+// function menu(opcionSeleccionada) {
+//   switch (opcionSeleccionada) {
+//     case 0:
+//       salir = true;
+//       alert(`Gracias por visitarnos, vuelva pronto :D`);
+//       break;
+//     case 1:
+//       mostrarCatalogo();
+
+//       break;
+//     case 2:
+//       nuevoLibro();
+//       break;
+//     case 3:
+//       eliminarLibro();
+//       break;
+//     case 4:
+//       break;
+//     case 5:
+//       break;
+//     default:
+//       alert(`Ingrese una opción correcta`);
+//   }
+// }
+
+// //CÓDIGO:
+// let salir;
+// while (salir != true) {
+//   preguntarOpcion();
+// }
+
+// for of - element seria como un index.
+
+// for (let element of primerArray) {
+//   console.log(element);
+// }
+
+// ---------------------------------------------
+
+// FUNCIONES DE ORDEN SUPERIOR- pueden recibir funciones como parametros y retornar funciones tambien.
+
+// const numeros = [1, 2, 3, 4, 5];
+
+// function porCadaUno(primerPar, segundoPar) {
+//   for (let elem of primerPar) {
+//     segundoPar(elem);
+//   }
+// }
+
+// porCadaUno(numeros), (a) => console.log(a * 2);
+
+// METODOS DE BUSQUEDA Y TRANSFORMACION
+
+// for each
+
+// numeros.forEach((num) => {
+//   console.log(num);
+// });
+
+// FIND busca un elemento y devuelve la primera coincidencia.
+
+// const productos = [
+//   { nombre: "Laptop", precio: 1000 },
+//   { nombre: "Mouse", precio: 50 },
+//   { nombre: "Teclado", precio: 100 },
+// ];
+
+// // buscar con find
+// let productoEncontrado = productos.find((n) => {
+//   return n.precio > 100;
+// });
+
+// // buscar con find el nombre laptop
+// const laptop = productos.find(function (n) {
+//   return n.nombre === "Laptop";
+// });
+
+// FILTER busca un elemento y devuelve todas las coincidencias.
+
+// SOME / EVERY COPIAR DEL CODIGO CLASE.
+// MAP /
+
+// REDUCE
+// const productos = [
+//     { nombre: "Laptop", precio: 1000 },
+//     { nombre: "MouseXOR", precio: 3550 },
+//     { nombre: "TecladoRRR", precio: 4000 },
+//     { nombre: "Mouse", precio: 50 },
+//     { nombre: "Teclado", precio: 100 }
+// ]
+
+// // Con esta funcion acumuladomos todos los precios del array
+// const acumuladorReduce = productos.reduce((acumulador, producto) => {
+//     return acumulador + producto.precio;
+// }, 0);
+
+// console.log(acumuladorReduce);
