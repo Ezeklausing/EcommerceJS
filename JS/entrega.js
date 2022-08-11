@@ -226,6 +226,6 @@ const botonAgregar = document.querySelectorAll("#agregaBtn");
 
 botonAgregar.forEach((botonAgregarAlCarrito) => {
   botonAgregarAlCarrito.addEventListener("click", () => {
-    alert(botonAgregar.value);
+    alert("agregaste este articulo al carrito.");
   });
 });
