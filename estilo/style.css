@@ -77,3 +77,9 @@ section {
 .botonVerCarrito {
   margin-left: 5px;
 }
+
+.botonesCarrito {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 15px;
+}
