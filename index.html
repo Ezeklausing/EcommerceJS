@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./estilo/pushbar.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
@@ -11,14 +12,36 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./estilo/style.css" />
-
     <title>ecommerce</title>
   </head>
   <body>
-    <br />
-    <h1 class="text-white">Merchandising</h1>
-    <br />
-    <div id="articulos" class="articulosEstilo"></div>
+    <div>
+      <br />
+      <header>
+        <h1 class="text-white">Merchandising</h1>
+      </header>
+      <br />
+      <section>
+        <div id="articulos" class="articulosEstilo"></div>
+      </section>
+      <div
+        data-pushbar-id="pushbar-carrito"
+        data-pushbar-direction="right"
+        class="pushbar-carrito"
+      >
+        <p class="titulo">Carrito</p>
+        <div id="productosEnCarrito">
+      </div>
+    </div>
+    <div class="botonVerCarrito">
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-pushbar-target="pushbar-carrito"
+      >
+        Ver carrito
+      </button>
+    </div>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -34,6 +57,13 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+    <script src="./JS/pushbar.js"></script>
+    <script type="text/javascript">
+      const pushbar = new Pushbar({
+        blur: true,
+        overlay: true,
+      });
+    </script>
     <script src="./JS/arrays.js"></script>
     <script src="./JS/entrega.js"></script>
   </body>

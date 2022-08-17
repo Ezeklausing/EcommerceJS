@@ -1,4 +1,4 @@
-const REMERAS = [
+let remeras = [
   {
     id: 0,
     nombre: `Remera NueveLeguas Logo banda Negra`,
@@ -63,4 +63,4 @@ const REMERAS = [
   },
 ];
 
-const CARRITO = [];
+let carrito = [];

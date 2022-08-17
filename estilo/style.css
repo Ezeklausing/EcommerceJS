@@ -8,12 +8,72 @@ body {
   background-image: url("/assets/fondoR.jpg");
 }
 
-h1 {
-  margin-left: 2.5rem;
+header {
+  grid-area: head;
+  margin: 1.5rem 0;
 }
+
+section {
+  grid-area: merch;
+}
+
 .articulosEstilo {
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+.container-grid {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-areas:
+    "head head"
+    "merch nav"
+    "merch nav";
+}
+
+.pushbar-carrito {
+  background-color: #000;
+  opacity: 0.8;
+  color: white;
+  font-size: 18px;
+  font-weight: 300;
+  margin-left: 15px;
+}
+
+.pushbar-carrito .titulo {
+  font-size: 24px;
+  padding: 20px 0;
+  font-weight: 600;
+  margin-bottom: 22px;
+  margin-left: 15px;
+  border-bottom: 2px solid rgb(54, 54, 54);
+}
+
+.pushbar-carrito .producto {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  margin: 0 15px;
+  border-bottom: 2px solid rgb(54, 54, 54);
+}
+
+.pushbar-carrito .producto img {
+  width: 100%;
+  max-width: 85px;
+}
+
+.pushbar-carrito .descripcion {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.pushbar-carrito .descripcion p {
+  margin: 0;
+}
+
+.botonVerCarrito {
+  margin-left: 5px;
 }
