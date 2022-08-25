@@ -62,5 +62,3 @@ let remeras = [
     },
   },
 ];
-
-let carrito = [];
