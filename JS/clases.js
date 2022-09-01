@@ -8,20 +8,23 @@ class producto {
   }
 }
 
-let buzos = [];
+let remeras = [];
 
-fetch("../JS/productos.json")
-  .then((response) => response.json())
-  .then((productos) => {
-    for (let buzos of productos) {
-      let buzoNuevo = new producto(
-        buzo.id,
-        buzo.nombre,
-        buzo.precio,
-        buzo.descuento,
-        buzo.imagen
-      );
-      buzos.push(buzoNuevo);
-    }
-    console.log(buzo);
-  });
+const pedirArray = async () => {
+  const resp = await fetch("../JS/productos.json");
+  const productos = await resp.json();
+  for (let remera of productos) {
+    let remeraNueva = new producto(
+      remera.id,
+      remera.nombre,
+      remera.precio,
+      remera.descuento,
+      remera.imagen
+    );
+    remeras.push(remeraNueva);
+  }
+};
+
+pedirArray();
+
+console.log(remeras);
