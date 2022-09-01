@@ -8,22 +8,20 @@ class producto {
   }
 }
 
-let remeras = [];
+let buzos = [];
 
 fetch("../JS/productos.json")
   .then((response) => response.json())
   .then((productos) => {
-    console.log(productos);
-
-    for (let remera of productos) {
-      let remera = new producto(
-        remera.id,
-        remera.nombre,
-        remera.precio,
-        remera.descuento,
-        remera.imagen,
-        remera.stock
+    for (let buzos of productos) {
+      let buzoNuevo = new producto(
+        buzo.id,
+        buzo.nombre,
+        buzo.precio,
+        buzo.descuento,
+        buzo.imagen
       );
-      remeras.push(remera);
+      buzos.push(buzoNuevo);
     }
+    console.log(buzo);
   });
