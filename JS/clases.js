@@ -8,23 +8,23 @@ class producto {
   }
 }
 
-let remeras = [];
+// let remeras = [];
 
-const pedirArray = async () => {
-  const resp = await fetch("../JS/productos.json");
-  const productos = await resp.json();
-  for (let remera of productos) {
-    let remeraNueva = new producto(
-      remera.id,
-      remera.nombre,
-      remera.precio,
-      remera.descuento,
-      remera.imagen
-    );
-    remeras.push(remeraNueva);
-  }
-};
+// const pedirArray = async () => {
+//   const resp = await fetch("../JS/productos.json");
+//   const productos = await resp.json();
+//   for (let remera of productos) {
+//     let remeraNueva = new producto(
+//       remera.id,
+//       remera.nombre,
+//       remera.precio,
+//       remera.descuento,
+//       remera.imagen
+//     );
+//     remeras.push(remeraNueva);
+//   }
+// };
 
-pedirArray();
+// pedirArray();
 
-console.log(remeras);
+// console.log(remeras);
