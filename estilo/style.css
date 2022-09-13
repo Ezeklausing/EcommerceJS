@@ -60,8 +60,8 @@ section {
 }
 
 .pushbar-carrito .producto img {
-  width: 100%;
-  max-width: 85px;
+  height: 85px;
+  width: 80px;
 }
 
 .pushbar-carrito .descripcion {

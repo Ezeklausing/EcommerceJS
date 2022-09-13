@@ -35,7 +35,8 @@ function agregarAlCarrito(remera) {
 function totalCompra() {
   totalDelCarrito.innerHTML = "";
   let total = carrito.reduce((total, remera) => total + remera.precio, 0);
-  totalDelCarrito.innerHTML = `<p>El total de su compra es $${total}</p>`;
+  totalDelCarrito.innerHTML = `<p>Cantidad de articulos en carrito ${carrito.length}.</p>
+  <p>El total de su compra es $${total}</p>`;
 }
 //funcion catalogo
 function catalogo() {
@@ -67,8 +68,8 @@ function catalogo() {
         confirmButtonText: "Agregar",
       }).then((result) => {
         if (result.isConfirmed) {
-          agregarAlCarrito(remera);
           Swal.fire("Tu articulo se agrego al carrito");
+          agregarAlCarrito(remera);
         }
       });
     });
@@ -86,9 +87,12 @@ function pushAlCarrito(storage) {
     <div class="descripcion">
     <p>${remera.nombre}</p>
     <p>$ ${remera.precio}</p>
+    <p>cantidad: <span id="cantidad ">${(remera.cantidad = 1)}</span></p>
     </div>
 
-    <button id = "deleteButton ${remera.id}" type="button" class="btn btn-outline-danger">Quitar</button>
+    <button id = "deleteButton ${
+      remera.id
+    }" type="button" class="btn btn-outline-danger">Quitar</button>
   </div>
   `;
   });
@@ -126,10 +130,23 @@ function pushAlCarrito(storage) {
 
 //Evento btn reset carrito//
 botonResetCarrito.addEventListener("click", () => {
-  carrito = [];
-  localStorage.setItem("carrito", JSON.stringify(carrito));
-  pushAlCarrito(carrito);
-  totalCompra();
+  Swal.fire({
+    title: "Borrar articulos en carrito?",
+    text: "No se puede revertir!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Si, borrar!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire("Borrado!", "El carrito esta vacio");
+      carrito = [];
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      pushAlCarrito(carrito);
+      totalCompra();
+    }
+  });
 });
 
 // Evento btn avanzar compra
@@ -149,3 +166,7 @@ botonAvanzaCompra.addEventListener("click", () => {
     }
   })();
 });
+
+// let existe = carrito.some((remera) => remera.id === remera.id);
+//           if (existe) {
+//             remera.cantidad++;
