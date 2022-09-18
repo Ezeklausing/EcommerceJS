@@ -1,0 +1,162 @@
+[
+  {
+    "id": 0,
+    "nombre": "Remera Anthrax gris",
+    "precio": 3200,
+    "descuento": 0,
+    "imagen": "/assets/remeras/Remera Modelo Anthrax gris.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 1,
+    "nombre": "Remera Bigleb blanca",
+    "precio": 3150,
+    "descuento": 30,
+    "imagen": "/assets/remeras/Remera Modelo big Lebowski blanca.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 2,
+    "nombre": "Remera Blur negra",
+    "precio": 2950,
+    "descuento": 10,
+    "imagen": "/assets/remeras/Remera Modelo Blur negra.jpeg",
+    "cantidad": 1
+  },
+  {
+    "id": 3,
+    "nombre": "Remera Carbomb Negra",
+    "precio": 3420,
+    "descuento": 15,
+    "imagen": "/assets/remeras/Remera Modelo Carbomb Negra.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 4,
+    "nombre": "Remera Coltrane negra",
+    "precio": 2750,
+    "descuento": 10,
+    "imagen": "/assets/remeras/Remera Modelo Coltrane negra.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 5,
+    "nombre": "Remera Ecom Negra",
+    "precio": 2200,
+    "descuento": 0,
+    "imagen": "/assets/remeras/Remera Modelo Ecom Negra.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 6,
+    "nombre": "Remera Got Music Negra",
+    "precio": 2600,
+    "descuento": 30,
+    "imagen": "/assets/remeras/Remera Modelo Got Music Negra.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 7,
+    "nombre": "Remera logo Negra",
+    "precio": 2990,
+    "descuento": 10,
+    "imagen": "/assets/remeras/Remera Modelo Im with the band Negra.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 8,
+    "nombre": "Remera Jamiro Negra",
+    "precio": 3200,
+    "descuento": 15,
+    "imagen": "/assets/remeras/Remera Modelo Jamiro Negra.jpeg",
+    "cantidad": 1
+  },
+  {
+    "id": 9,
+    "nombre": "Remera Meshuggah cd",
+    "precio": 3450,
+    "descuento": 10,
+    "imagen": "/assets/remeras/Remera Modelo Meshuggah blanca.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 10,
+    "nombre": "Remera Meshuggah cd",
+    "precio": 3350,
+    "descuento": 0,
+    "imagen": "/assets/remeras/Remera Modelo Meshuggah Inmutable Negra.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 11,
+    "nombre": "Remera Miles Blanca",
+    "precio": 3150,
+    "descuento": 30,
+    "imagen": "/assets/remeras/remera Modelo Miles Blanca.jfif",
+    "cantidad": 1
+  },
+  {
+    "id": 12,
+    "nombre": "Remera Motivo Gris",
+    "precio": 2550,
+    "descuento": 10,
+    "imagen": "/assets/remeras/Remera Modelo Motivo Gris.jpeg",
+    "cantidad": 1
+  },
+  {
+    "id": 13,
+    "nombre": "Remera Motivo turquesa",
+    "precio": 2100,
+    "descuento": 35,
+    "imagen": "/assets/remeras/Remera Modelo turquesa.jfif",
+    "cantidad": 1
+  },
+  {
+    "id": 14,
+    "nombre": "Remera Mujer Blanca lisa",
+    "precio": 2700,
+    "descuento": 10,
+    "imagen": "/assets/remeras/Remera Mujer Modelo Blanca lisa.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 15,
+    "nombre": "Remera Mujer Floyd negra",
+    "precio": 3200,
+    "descuento": 0,
+    "imagen": "/assets/remeras/Remera Mujer Modelo floyd negra.jpeg",
+    "cantidad": 1
+  },
+  {
+    "id": 16,
+    "nombre": "Remera Mujer Fun Blanca",
+    "precio": 3100,
+    "descuento": 30,
+    "imagen": "/assets/remeras/Remera Mujer Modelo Fun Blanca.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 17,
+    "nombre": "Remera Mujer Gojira cd",
+    "precio": 3500,
+    "descuento": 10,
+    "imagen": "/assets/remeras/Remera Mujer Modelo Gojira Negra.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 18,
+    "nombre": "Remera Mujer Japan negra",
+    "precio": 3450,
+    "descuento": 15,
+    "imagen": "/assets/remeras/Remera mujer modelo Japan negra.jpeg",
+    "cantidad": 1
+  },
+  {
+    "id": 19,
+    "nombre": "Remera Mujer Miles negra",
+    "precio": 2600,
+    "descuento": 10,
+    "imagen": "/assets/remeras/Remera Mujer modelo Miles negra.jpg",
+    "cantidad": 1
+  }
+]

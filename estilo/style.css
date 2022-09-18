@@ -10,7 +10,7 @@ body {
 
 header {
   grid-area: head;
-  margin: 1.5rem 0;
+  height: 7rem;
 }
 
 section {
@@ -26,11 +26,11 @@ section {
 
 .container-grid {
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 1fr;
   grid-template-areas:
-    "head head"
-    "merch nav"
-    "merch nav";
+    "head"
+    "merch"
+    "merch";
 }
 
 .pushbar-carrito {
@@ -82,4 +82,9 @@ section {
   display: flex;
   justify-content: space-around;
   margin-left: 15px;
+}
+
+.imgCommerce {
+  max-width: 150px;
+  max-height: 150px;
 }

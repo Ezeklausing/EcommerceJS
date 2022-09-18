@@ -1,9 +1,10 @@
 /*Iniciar array Remeras en localstorage */
-if (localStorage.getItem("remeras")) {
-  remeras = JSON.parse(localStorage.getItem("remeras"));
-} else {
-  localStorage.setItem("remeras", JSON.stringify(remeras));
-}
+
+// if (localStorage.getItem("remeras")) {
+//   remeras = JSON.parse(localStorage.getItem("remeras"));
+// } else {
+//   localStorage.setItem("remeras", JSON.stringify(remeras));
+// }
 
 /*Iniciar array carrito en localstorage */
 
@@ -26,40 +27,58 @@ botonVerCarrito.addEventListener("click", () => {
 });
 
 /* Productos en stock catalogo*/
-function agregarAlCarrito(remera) {
-  carrito.push(remera);
+function agregarAlCarrito(producto) {
+  carrito.push(producto);
   localStorage.setItem("carrito", JSON.stringify(carrito));
   pushAlCarrito(carrito);
 }
+
 /* Funcion para calcular total de compra*/
 function totalCompra() {
   totalDelCarrito.innerHTML = "";
-  let total = carrito.reduce((total, remera) => total + remera.precio, 0);
+  let total = carrito.reduce(
+    (total, producto) => total + producto.precio * producto.cantidad,
+    0
+  );
   totalDelCarrito.innerHTML = `<p>Cantidad de articulos en carrito ${carrito.length}.</p>
   <p>El total de su compra es $${total}</p>`;
 }
-//funcion catalogo
-function catalogo() {
+/*FETCH */
+document.addEventListener("DOMContentLoaded", () => {
+  fetchData();
+});
+
+const fetchData = async () => {
+  try {
+    const resp = await fetch("../JS/remeras.json");
+    const remeras = await resp.json();
+    catalogo(remeras);
+  } catch (error) {
+    console.log(error);
+  }
+};
+/*CATALOGO*/
+const catalogo = (remeras) => {
   divArticulos.innerHTML = "";
-  remeras.forEach((remera) => {
+  remeras.forEach((producto) => {
     let nuevoArticulo = document.createElement("div");
-    nuevoArticulo.innerHTML = `<div id = "${remera.id}" class="card" style="width: 18rem;">
-    <figure><img class="card-img-top" src="${remera.imagen}" alt="${remera.nombre}"></figure>
+    nuevoArticulo.innerHTML = `<div id = "${producto.id}" class="card" style="width: 18rem;">
+    <figure><img class="card-img-top" src="${producto.imagen}" alt="${producto.nombre}"></figure>
     <div class="card-body">
-      <h5 class="card-title">Precio $ ${remera.precio}</h5>
-      <p class="card-text">${remera.nombre}</p>
-      <a href="#" id = "agregaBtn ${remera.id}" class="btn btn-primary">Agregar al carrito</a>
+      <h5 class="card-title">${producto.nombre}</h5>
+      <p class="card-text">Precio $${producto.precio}</p>
+      <a href="#" id = "agregaBtn ${producto.id}" class="btn btn-primary">Agregar al carrito</a>
     </div>
     </div>
     <br>
     `;
     divArticulos.appendChild(nuevoArticulo);
-    let botonAgregar = document.getElementById(`agregaBtn ${remera.id}`);
+    let botonAgregar = document.getElementById(`agregaBtn ${producto.id}`);
     botonAgregar.addEventListener("click", () => {
       Swal.fire({
         title: "Agregar articulo al carrito?",
-        text: `${remera.nombre}`,
-        imageUrl: `${remera.imagen}`,
+        text: `${producto.nombre}`,
+        imageUrl: `${producto.imagen}`,
         imageWidth: 200,
         imageHeight: 200,
         showCancelButton: true,
@@ -68,45 +87,131 @@ function catalogo() {
         confirmButtonText: "Agregar",
       }).then((result) => {
         if (result.isConfirmed) {
-          Swal.fire("Tu articulo se agrego al carrito");
-          agregarAlCarrito(remera);
+          let productoAgregado = carrito.find(
+            (articulo) => articulo.id == producto.id
+          );
+          if (productoAgregado == undefined) {
+            Swal.fire("Tu articulo se agrego al carrito");
+            agregarAlCarrito(producto);
+          } else {
+            Swal.fire({
+              title:
+                "El articulo ya esta en el carrito, desea agregar mas unidades?",
+              text: `${producto.nombre}`,
+              icon: "info",
+              showCancelButton: true,
+              confirmButtonColor: `green`,
+              cancelButtonColor: "#d33",
+              confirmButtonText: "Agregar",
+            }).then((result) => {
+              if (result.isConfirmed) {
+                let productoAgregado = carrito.find(
+                  (articulo) => articulo.id == producto.id
+                );
+                productoAgregado.cantidad = productoAgregado.cantidad + 1;
+                localStorage.setItem("carrito", JSON.stringify(carrito));
+                pushAlCarrito(carrito);
+              }
+            });
+          }
         }
       });
     });
   });
-}
+};
 
-catalogo();
+//funcion catalogo
+// function catalogo() {
+//   divArticulos.innerHTML = "";
+//   remeras.forEach((producto) => {
+//     let nuevoArticulo = document.createElement("div");
+//     nuevoArticulo.innerHTML = `<div id = "${producto.id}" class="card" style="width: 18rem;">
+//     <figure><img class="card-img-top" src="${producto.imagen}" alt="${producto.nombre}"></figure>
+//     <div class="card-body">
+//       <h5 class="card-title">${producto.nombre}</h5>
+//       <p class="card-text">Precio $${producto.precio}</p>
+//       <a href="#" id = "agregaBtn ${producto.id}" class="btn btn-primary">Agregar al carrito</a>
+//     </div>
+//     </div>
+//     <br>
+//     `;
+//     divArticulos.appendChild(nuevoArticulo);
+//     let botonAgregar = document.getElementById(`agregaBtn ${producto.id}`);
+//     botonAgregar.addEventListener("click", () => {
+//       Swal.fire({
+//         title: "Agregar articulo al carrito?",
+//         text: `${producto.nombre}`,
+//         imageUrl: `${producto.imagen}`,
+//         imageWidth: 200,
+//         imageHeight: 200,
+//         showCancelButton: true,
+//         confirmButtonColor: "#3085d6",
+//         cancelButtonColor: "#d33",
+//         confirmButtonText: "Agregar",
+//       }).then((result) => {
+//         if (result.isConfirmed) {
+//           let productoAgregado = carrito.find(
+//             (articulo) => articulo.id == producto.id
+//           );
+//           if (productoAgregado == undefined) {
+//             Swal.fire("Tu articulo se agrego al carrito");
+//             agregarAlCarrito(producto);
+//           } else {
+//             Swal.fire({
+//               title:
+//                 "El articulo ya esta en el carrito, desea agregar mas unidades?",
+//               text: `${producto.nombre}`,
+//               icon: "info",
+//               showCancelButton: true,
+//               confirmButtonColor: `green`,
+//               cancelButtonColor: "#d33",
+//               confirmButtonText: "Agregar",
+//             }).then((result) => {
+//               if (result.isConfirmed) {
+//                 let productoAgregado = carrito.find(
+//                   (articulo) => articulo.id == producto.id
+//                 );
+//                 productoAgregado.cantidad = productoAgregado.cantidad + 1;
+//                 localStorage.setItem("carrito", JSON.stringify(carrito));
+//                 pushAlCarrito(carrito);
+//               }
+//             });
+//           }
+//         }
+//       });
+//     });
+//   });
+// }
+
+// catalogo();
 
 //funcion items en el carrito
 function pushAlCarrito(storage) {
   carritoBody.innerHTML = " ";
-  storage.forEach((remera) => {
-    carritoBody.innerHTML += `<div id="producto ${remera.id}" class="producto">
-    <figure><img src="${remera.imagen}" alt="${remera.nombre}" /></figure>
+  storage.forEach((producto) => {
+    carritoBody.innerHTML += `<div id="producto ${producto.id}" class="producto">
+    <figure><img src="${producto.imagen}" alt="${producto.nombre}" /></figure>
     <div class="descripcion">
-    <p>${remera.nombre}</p>
-    <p>$ ${remera.precio}</p>
-    <p>cantidad: <span id="cantidad ">${(remera.cantidad = 1)}</span></p>
+    <p>${producto.nombre}</p>
+    <p>$ ${producto.precio}</p>
+    <p>cantidad: <span id="cantidad ">${producto.cantidad}</span></p>
     </div>
 
-    <button id = "deleteButton ${
-      remera.id
-    }" type="button" class="btn btn-outline-danger">Quitar</button>
+    <button id = "deleteButton ${producto.id}" type="button" class="btn btn-outline-danger">Quitar</button>
   </div>
   `;
   });
 
   //Evento boton quitar en el carrito//
-  storage.forEach((remera, indice) => {
+  storage.forEach((producto, indice) => {
     let borrarArticuloBtn = document.getElementById(
-      `deleteButton ${remera.id}`
+      `deleteButton ${producto.id}`
     );
     borrarArticuloBtn.addEventListener("click", () => {
       Swal.fire({
         title: "Eliminar el articulo del carrito?",
-        text: `${remera.nombre}`,
-        imageUrl: `${remera.imagen}`,
+        text: `${producto.nombre}`,
+        imageUrl: `${producto.imagen}`,
         imageWidth: 200,
         imageHeight: 200,
         showCancelButton: true,
@@ -116,8 +221,9 @@ function pushAlCarrito(storage) {
       }).then((result) => {
         if (result.isConfirmed) {
           Swal.fire("Tu articulo se removio del carrito");
-          let producto = document.getElementById(`producto ${remera.id}`);
-          producto.remove(); //si es el mismo producto no te lo va a quitar.
+          let item = document.getElementById(`producto ${producto.id}`);
+          console.log(item);
+          item.remove(); //si es el mismo producto no te lo va a quitar.
           carrito.splice(indice, 1);
           localStorage.setItem("carrito", JSON.stringify(carrito));
           pushAlCarrito(carrito);

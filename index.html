@@ -17,7 +17,7 @@
     <title>ecommerce</title>
   </head>
   <body>
-    <div>
+    <div class="container-grid">
       <br />
       <header>
         <h1 class="text-white">Merchandising</h1>
@@ -36,29 +36,41 @@
         <p class="titulo">Carrito</p>
         <div id="productosEnCarrito">
           <div id="carritoBody"></div>
-          
+        </div>
+        <br />
+        <!--Total del carrito-->
+        <div id="totalEnCarrito"></div>
+        <div class="botonesCarrito">
+          <button
+            id="resetCarrito"
+            type="button"
+            class="btn btn-outline-secondary"
+          >
+            Resetear carrito
+          </button>
+          <button
+            id="avanzaCompra"
+            type="button"
+            class="btn btn-outline-success"
+          >
+            Avanzar Compra
+          </button>
+        </div>
+        <div class="formularioCompra"></div>
       </div>
-      <br>
-      <!--Total del carrito-->
-      <div id="totalEnCarrito">
-      </div>
-      <div class="botonesCarrito">
-        <button id="resetCarrito" type="button" class="btn btn-outline-secondary">Resetear carrito</button>
-        <button id="avanzaCompra" type="button" class="btn btn-outline-success">Avanzar Compra</button>
-      </div>
-      <div class="formularioCompra">
-      </div>
-    </div>
-    <!--boton ver carrito-->  
-    <div>
-      <button
-        id="fullCarrito"
-        type="button"
-        class="btn btn-primary"
-        data-pushbar-target="pushbar-carrito"
-      >
-        Ver carrito
-      </button>
+      <!--boton ver carrito-->
+      <footer>
+        <div>
+          <button
+            id="fullCarrito"
+            type="button"
+            class="btn btn-primary"
+            data-pushbar-target="pushbar-carrito"
+          >
+            Ver carrito
+          </button>
+        </div>
+      </footer>
     </div>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -83,7 +95,6 @@
       });
     </script>
     <script src="./JS/clases.js"></script>
-    <script src="./JS/arrays.js"></script>
     <script src="./JS/entrega.js"></script>
   </body>
 </html>

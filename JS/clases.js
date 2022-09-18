@@ -1,30 +1,39 @@
-class producto {
+class articulos {
   constructor(id, nombre, precio, descuento, imagen) {
     this.id = id;
     this.nombre = nombre;
     this.precio = precio;
     this.descuento = descuento;
     this.imagen = imagen;
+    this.cantidad = 1;
   }
 }
 
-// let remeras = [];
+// for (let remera of productos) {
+//   let remeraNueva = new producto(
+//     remera.id,
+//     remera.nombre,
+//     remera.precio,
+//     remera.descuento,
+//     remera.imagen
+//   );
+//   remeras.push(remeraNueva);
+// }
 
-// const pedirArray = async () => {
-//   const resp = await fetch("../JS/productos.json");
-//   const productos = await resp.json();
-//   for (let remera of productos) {
-//     let remeraNueva = new producto(
-//       remera.id,
-//       remera.nombre,
-//       remera.precio,
-//       remera.descuento,
-//       remera.imagen
-//     );
-//     remeras.push(remeraNueva);
+// document.addEventListener("DOMContentLoaded", () => {
+//   fetchData();
+// });
+
+// const fetchData = async () => {
+//   try {
+//     const resp = await fetch("../JS/remeras.json");
+//     const productos = await resp.json();
+//     pintarCards(productos);
+//   } catch (error) {
+//     console.log(error);
 //   }
 // };
 
-// pedirArray();
-
-// console.log(remeras);
+// const pintarCards = (productos) => {
+//   console.log(productos);
+// };
