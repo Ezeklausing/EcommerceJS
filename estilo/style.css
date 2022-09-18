@@ -5,12 +5,18 @@
 }
 
 body {
+  min-height: 100vh;
   background-image: url("/assets/fondoR.jpg");
 }
 
 header {
   grid-area: head;
   height: 7rem;
+}
+
+footer {
+  grid-area: bottom;
+  height: 5rem;
 }
 
 section {
@@ -30,9 +36,14 @@ section {
   grid-template-areas:
     "head"
     "merch"
-    "merch";
+    "merch"
+    "bottom";
 }
 
+h1 {
+  margin: 1rem 2.5rem;
+  font-size: 3.5rem;
+}
 .pushbar-carrito {
   background-color: #000;
   opacity: 0.8;
@@ -75,7 +86,7 @@ section {
 }
 
 #fullCarrito {
-  margin-left: 5px;
+  margin: 2.5rem;
 }
 
 .botonesCarrito {
@@ -87,4 +98,8 @@ section {
 .imgCommerce {
   max-width: 150px;
   max-height: 150px;
+}
+
+#totalEnCarrito {
+  margin-left: 1rem;
 }
